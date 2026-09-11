@@ -421,8 +421,7 @@ static bool rx19_renault_0435r_decode(
             }
             /* Observed production frames use the high flag nibble 0xC. This
              * extra gate reduces overlap with normal Renault 9-byte frames. */
-            /* fix: Relearn frames (activated by LF) have 0xD as the nibble */
-            if(((raw[3] & 0xF0U) != 0xC0U) && ((raw[3] & 0xF0U) != 0xD0U)) {
+            if((raw[3] & 0xF0U) != 0xC0U) {
                 pos++;
                 continue;
             }
